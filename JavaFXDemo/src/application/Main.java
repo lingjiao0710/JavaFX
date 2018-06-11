@@ -81,7 +81,30 @@ public class Main extends Application {
 			root.setTop(button);
 			root.setCenter(imageView);
 			
-			Scene scene = new Scene(root, 400, 400);
+			for (int i = 1; i < imageUrls.length; i++) {
+				ImageView view = new ImageView();
+				view.setPreserveRatio(true);
+				view.setFitHeight(400);
+				view.setFitWidth(400);
+				view.setImage(images[i]);
+				
+				switch (i) {
+				case 1:
+					root.setLeft(view);
+					break;
+				case 2:
+					root.setRight(view);
+					break;
+				case 3:
+					root.setBottom(view);
+					break;
+				default:
+					break;
+				}
+			}
+
+			
+			Scene scene = new Scene(root, 1000, 1000);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
